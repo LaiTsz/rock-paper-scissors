@@ -43,6 +43,8 @@ function game(){
     {
         console.log('you win');
     }
-    else
+    else if (win<lose)
         console.log('you lose');
+    else
+        console.log('Draw');
 }
