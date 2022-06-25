@@ -7,20 +7,29 @@ function computerPlay(){
 }
 console.log(computerPlay());
 function playRound(playerSelection,computerSelection){
-    playerSelection=playerSelection.toLowerCase();
     if(playerSelection===computerSelection)
     {return 'Draw';}
     else if(playerSelection==='scissor'&&computerSelection==='paper'
     ||playerSelection==='paper'&&computerSelection==='rock'||playerSelection==='rock'&&computerSelection==='scissor')
     {
+        win++;
+        winPoint.textContent=win;
         return 'win';
     }
     else 
     {
+        losePoint.textContent=lose;
+        lose++;
         return 'lose';
     }
 }
-function game(){
+const btn=document.querySelectorAll('button');
+const message=document.querySelector('div');
+const winPoint=document.querySelector('#win');
+const losePoint=document.querySelector('#lose');
+btn.forEach((button)=>{button.addEventListener('click',()=>message.textContent=(playRound(button.id,computerPlay())))});
+
+/*function game(){
     for(let i=0;i<5;i++)
     {
         let player=prompt('rock paper scissor','');
@@ -47,4 +56,4 @@ function game(){
         console.log('you lose');
     else
         console.log('Draw');
-}
+}*/
