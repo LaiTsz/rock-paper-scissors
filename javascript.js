@@ -7,28 +7,36 @@ function computerPlay(){
 }
 console.log(computerPlay());
 function playRound(playerSelection,computerSelection){
+    console.log(playerSelection, computerSelection)
     if(playerSelection===computerSelection)
     {return 'Draw';}
     else if(playerSelection==='scissor'&&computerSelection==='paper'
     ||playerSelection==='paper'&&computerSelection==='rock'||playerSelection==='rock'&&computerSelection==='scissor')
     {
         win++;
-        winPoint.textContent=win;
+        winPoint.textContent=`win: ${win}`;;
         return 'win';
     }
     else 
     {
-        losePoint.textContent=lose;
         lose++;
+        losePoint.textContent=`lose: ${lose}`;
         return 'lose';
     }
 }
+function announce(){
+    if(win>=5)
+    {announcement.textContent='the player win'}
+    else if(lose>=5)
+    {announcement.textContent='the computer win'}
+}
 const btn=document.querySelectorAll('button');
 const message=document.querySelector('div');
+const announcement=document.querySelector('#announce');
 const winPoint=document.querySelector('#win');
 const losePoint=document.querySelector('#lose');
 btn.forEach((button)=>{button.addEventListener('click',()=>message.textContent=(playRound(button.id,computerPlay())))});
-
+btn.forEach((button)=>{button.addEventListener('click',()=>announce())});
 /*function game(){
     for(let i=0;i<5;i++)
     {
