@@ -31,7 +31,7 @@ function announce(){
     {announcement.textContent='the computer win'}
 }
 const btn=document.querySelectorAll('button');
-const message=document.querySelector('div');
+const message=document.querySelector('#result');
 const announcement=document.querySelector('#announce');
 const winPoint=document.querySelector('#win');
 const losePoint=document.querySelector('#lose');
